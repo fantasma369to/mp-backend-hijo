@@ -1,4 +1,5 @@
 import mercadopago from "mercadopago";
+import "dotenv/config";
 
 const { MercadoPagoConfig } = mercadopago;
 const mp = new MercadoPagoConfig({
