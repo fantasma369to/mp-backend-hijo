@@ -5,7 +5,8 @@ import "dotenv/config";
 const { PreApproval } = mercadopago;
 
 export const CrearSuscripcion = async (req, res) => {
-  const BACK_URL = process.env.BACK_URL;
+  const BACK_PRUEBAS_URL = process.env.BACK_PRUEBAS_URL;
+    const BACK_PRODUCCION_URL = process.env.BACK_PRODUCCION_URL;
   try {
     const {
       email,
@@ -26,7 +27,7 @@ export const CrearSuscripcion = async (req, res) => {
           currency_id: "PEN",
         },
         payer_email: email,
-        back_url: BACK_URL,
+        back_url: BACK_PRODUCCION_URL,
         status: "pending",
         external_reference: id_suscripcion_id_plan,
       },
@@ -65,6 +66,6 @@ export const PagoExitoso = async (req, res) => {
   if (error) {
     throw new Error("Error actualizando Supabase: " + error.message);
   }
-  return res.redirect("https://www.youtube.com/@Codigo369");
+  return res.redirect("https://only-devs-pro.web.app/suscripciones");
 
 };
